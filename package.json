@@ -27,7 +27,7 @@
     "install:kerberos": "pnpm add kerberos@latest",
     "download": "node --loader=import-jsx ./scripts/download-latest-release-assets.js",
     "repacksify": "node ./scripts/repacksify.js",
-    "release": "cd ./packages/kerberos && pnpm publish",
+    "release": "cd ./packages/kerberos && pnpm publish --access=public",
     "prepare": "husky install"
   },
   "lint-staged": {
