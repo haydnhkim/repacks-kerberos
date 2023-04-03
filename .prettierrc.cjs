@@ -1,0 +1,22 @@
+module.exports = {
+  printWidth: 80,
+  singleQuote: true,
+  trailingComma: 'es5',
+  semi: true,
+  importOrder: [
+    '^(react/(.*)$)|^(react$)',
+    '^(next/(.*)$)|^(next$)',
+    '^prop-types',
+    '^classnames$',
+    '^redux',
+    '^mobx',
+    '^recoil',
+    '^jotai',
+    '^graphql',
+    '^apollo',
+    '^@(.*)$',
+    '<THIRD_PARTY_MODULES>',
+    '^[./]',
+  ],
+  importOrderSeparation: false,
+};

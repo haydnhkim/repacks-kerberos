@@ -1,0 +1,38 @@
+{
+  "name": "repacks-kerberos",
+  "private": true,
+  "description": "",
+  "type": "module",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@octokit/rest": "^19.0.7",
+    "import-jsx": "^5.0.0",
+    "ink": "^4.1.0",
+    "ink-spinner": "^5.0.0",
+    "kerberos": "^2.0.1",
+    "react": "^18.2.0"
+  },
+  "devDependencies": {
+    "@trivago/prettier-plugin-sort-imports": "^4.1.1",
+    "@types/node": "^18.15.11",
+    "husky": "^8.0.0",
+    "lint-staged": "^13.2.0",
+    "prettier": "^2.5.1"
+  },
+  "scripts": {
+    "dev": "pnpm install:kerberos && pnpm download && pnpm repacksify",
+    "install:kerberos": "pnpm add kerberos@latest",
+    "download": "node --loader=import-jsx ./scripts/download-latest-release-assets.js",
+    "repacksify": "node ./scripts/repacksify.js",
+    "release": "cd packages/repacks-kerberos && pnpm publish",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,md,html,css}": [
+      "prettier --write"
+    ]
+  }
+}
