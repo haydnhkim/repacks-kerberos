@@ -5,7 +5,8 @@ const { join } = require('path');
 
 const { platform, arch } = process;
 
-const nativeDirs = readdirSync(join(__dirname, '..', 'src', 'native'));
+const nativeRelativePath = join('..', 'src', 'native');
+const nativeDirs = readdirSync(join(__dirname, nativeRelativePath));
 const nativePath = 'build/Release/kerberos.node';
 let dirName = '';
 
@@ -49,7 +50,7 @@ if (!dirName) {
 
 let nativeBinding = null;
 try {
-  nativeBinding = require(`../native/${dirName}/${nativePath}`);
+  nativeBinding = require(`${nativeRelativePath}/${dirName}/${nativePath}`);
 } catch (err) {
   console.error(
     `Use the \x1b[36m'kerberos'\x1b[0m package directly instead of \x1b[35m'@repacks/kerberos'\x1b[0m.`
